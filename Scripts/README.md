@@ -10,6 +10,7 @@ If (workingOnScripts = true) {
 	Coffee = true;
 	Troubleshooting = true;
 }
+
 Else {
 	Sleep = true;
 }
