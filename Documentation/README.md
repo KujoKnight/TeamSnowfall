@@ -1,26 +1,7 @@
-# Team Snowfall
-This is the repository for Team Snowfall. 
+# Team  Documentation
+This is where the documentation files are for Team Snowfall. 
 The files contained are used for the final project for Game Production.
 
-## Assets
+## Documentation
 
-[Scripts](www.twitter.com)
-
-[Models](www.twitter.com)
-
-[Documentation](www.twitter.com)
-
-## Team Members
-John
-
-Alexander
-
-Christopher
-
-Tomas
-
-Dakota
-
-Hiram
-
-Brian
+Inside this folder is where the documentation files for this project are located. This includes team documents and project documents.
