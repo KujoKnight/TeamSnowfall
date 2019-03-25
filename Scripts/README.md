@@ -1,26 +1,9 @@
-# Team Snowfall
-This is the repository for Team Snowfall. 
+# Team Snowfall Scripts
+This is where the coding scripts are for Team Snowfall. 
 The files contained are used for the final project for Game Production.
 
-## Assets
+## Scripts
 
-[Scripts](www.twitter.com)
+```c#
 
-[Models](www.twitter.com)
-
-[Documentation](www.twitter.com)
-
-## Team Members
-John
-
-Alexander
-
-Christopher
-
-Tomas
-
-Dakota
-
-Hiram
-
-Brian
+```
