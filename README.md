@@ -4,11 +4,11 @@ The files contained are used for the final project for Game Production.
 
 ## Assets
 
-- [Scripts](www.twitter.com)
+- [Scripts](https://github.com/J0hnHP/TeamSnowfall/tree/master/Scripts)
 
-- [Models](www.twitter.com)
+- [Art](https://github.com/J0hnHP/TeamSnowfall/tree/master/Art)
 
-- [Documentation](www.twitter.com)
+- [Documentation](https://github.com/J0hnHP/TeamSnowfall/tree/master/Documentation)
 
 ## Team Members
 - John
