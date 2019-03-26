@@ -33,7 +33,7 @@ public class GrapplingHook : MonoBehaviour {
 	//  Update is called once per frame
 	void Update () {
         //  Pull when holding left click (And aiming at target)
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetButtonDown("Fire1"))
             LocateSpot();
 
         //  If being pulled, pull to target and prevent movement interference
@@ -41,7 +41,7 @@ public class GrapplingHook : MonoBehaviour {
             Flying();
 
         //  If not left clicking, end pull
-        if (Input.GetMouseButtonUp(0) && IsFlying)
+        if (Input.GetButtonUp("Fire1") && IsFlying)
         {
             IsFlying = false;
             TPC.CanMove = true;
