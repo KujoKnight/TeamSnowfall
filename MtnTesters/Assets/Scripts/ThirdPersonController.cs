@@ -71,4 +71,13 @@ public class ThirdPersonController : MonoBehaviour
         // for the character to reach at the apex.
         return Mathf.Sqrt(2 * jumpHeight * gravity);
     }
+
+    void OnTriggerEnter(Collider col)
+    {
+        if (col.gameObject.CompareTag("Collectable"))
+        {
+            col.gameObject.SetActive(false);
+        }
+    }
+
 }
