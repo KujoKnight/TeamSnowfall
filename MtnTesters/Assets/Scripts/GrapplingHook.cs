@@ -22,16 +22,33 @@ public class GrapplingHook : MonoBehaviour {
     [Tooltip("'Rope'")]
     public LineRenderer LR;
     public RaycastHit hit;
+    public Rigidbody rb;
+
+    //public float opac;
 
     //  Use this for initialization
     void Start () {
+        rb = TPC.GetComponent<Rigidbody>();
         Cursor.lockState = CursorLockMode.Locked;
         TPC.CanMove = true;
         TPC.GetComponent<Rigidbody>().useGravity = true;
-	}
+        //opac = TPC.GetComponent<Renderer>().material.color.a;
+
+    }
 	
 	//  Update is called once per frame
 	void Update () {
+        //  Change opacity of player when looking upward
+        /*if (cam.transform.position.z < -4)
+        {
+            Debug.Log(opac);
+            opac = cam.transform.position.z/-4;
+        }
+        else
+        {
+            opac = 1;
+        }*/
+
         //  Pull when holding left click (And aiming at target)
         if (Input.GetButtonDown("Fire1"))
             LocateSpot();
@@ -67,6 +84,7 @@ public class GrapplingHook : MonoBehaviour {
     public void Flying()
     {
         transform.position = Vector3.Lerp(transform.position, loc, speed * Time.deltaTime / Vector3.Distance(transform.position, loc));
+        rb.AddForce(cam.transform.forward * speed, ForceMode.Acceleration);
         LR.SetPosition(0, hand.position);
         TPC.GetComponent<Rigidbody>().useGravity = false;
 
