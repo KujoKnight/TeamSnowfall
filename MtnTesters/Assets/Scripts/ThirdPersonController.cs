@@ -15,12 +15,15 @@ public class ThirdPersonController : MonoBehaviour
     public float jumpHeight = 5.0f;
     public float maxVelocityChange = 10.0f;
     public float gravity = 5.0f;
+    public bool CanMove;
+    public GameObject playerModel;
 
     private Vector3 dir;
     private bool canJump = true;
     private bool isGrounded;
     private Transform groundCheck;
-    public bool CanMove;
+    
+    
 
     void Start()
     {
@@ -32,6 +35,8 @@ public class ThirdPersonController : MonoBehaviour
     void Update()
     {
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, ground, QueryTriggerInteraction.Ignore);
+
+        playerModel.transform.rotation = Quaternion.Euler(0, playCamera.transform.eulerAngles.y, 0);
     }
 
     void FixedUpdate()
@@ -79,11 +84,4 @@ public class ThirdPersonController : MonoBehaviour
             Destroy(col.gameObject);
         }
     }
-
-    void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawSphere(transform.position, 1);
-    }
-
 }

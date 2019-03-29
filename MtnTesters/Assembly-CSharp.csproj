@@ -66,6 +66,7 @@
     <Compile Include="Assets\Scripts\CarryOverData.cs" />
     <Compile Include="Assets\Scripts\Collectable.cs" />
     <Compile Include="Assets\Scripts\GrapplingHook.cs" />
+    <Compile Include="Assets\Scripts\GroundGiz.cs" />
     <Compile Include="Assets\Scripts\ThirdPersonController.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>D:/TeamSnowfall/MtnTesters/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
