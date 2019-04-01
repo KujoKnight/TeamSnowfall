@@ -4,19 +4,32 @@ using UnityEngine;
 
 public class ThirdPersonController : MonoBehaviour
 {
-
+    [Tooltip("Main camera following the Player")]
     public Transform playCamera;
+    [Tooltip("Player speed")]
     public float speed = 10.0f;
+    //[Tooltip("")]
     public float turnSpeed = 100.0f;
+    //[Tooltip("")]
     public float rotationSpeed = 2.0f;
+    [Tooltip("Player rigidbody")]
     public Rigidbody rb;
+    [Tooltip("Walkable area layer")]
     public LayerMask ground;
+    [Tooltip("Player distance to ground")]
     public float groundDistance = 0.2f;
+    [Tooltip("Player jump height")]
     public float jumpHeight = 5.0f;
+    [Tooltip("Maximum change in velocity")]
     public float maxVelocityChange = 10.0f;
+    [Tooltip("Gravity")]
     public float gravity = 5.0f;
+    [Tooltip("Can the player move?")]
     public bool CanMove;
+    [Tooltip("Player character model")]
     public GameObject playerModel;
+    [Tooltip("Force")]
+    public float force = 5;
 
     private Vector3 dir;
     private bool canJump = true;
@@ -82,6 +95,23 @@ public class ThirdPersonController : MonoBehaviour
         if (col.gameObject.CompareTag("Collectable"))
         {
             Destroy(col.gameObject);
+        }
+    }
+
+    //Flags the player as caught after it has collided with the npc
+    private void OnCollisionEnter(Collision col)
+    {
+        if (col.gameObject.CompareTag("Enemy"))
+        {
+            // Calculate Angle Between the collision point and the player
+            Vector3 dir = col.contacts[0].point - playerModel.transform.position;
+            // We then get the opposite (-Vector3) and normalize it
+            dir = -dir.normalized;
+            // And finally we add force in the direction of dir and multiply it by force. 
+            // This will push back the player
+            rb.AddForce(dir * force, ForceMode.Impulse);
+
+            Debug.Log("Player Hit");
         }
     }
 }

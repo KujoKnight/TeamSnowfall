@@ -1,14 +1,16 @@
 ﻿using UnityEngine;
 
-public class GrapplingHook : MonoBehaviour {
+public class GrapplingHook : MonoBehaviour
+{
     //  Public Variables
-    [Header("Grappling Time!")]
     [Tooltip("Layer to Target")]
     public LayerMask TargetLayer;
     [Tooltip("The max distance at which the Player can grapple")]
     public int MaxDist;
     [Tooltip("Speed that the player is being pulled")]
     public float speed = 10;
+    [Tooltip("Distance from grapple target to stop grappling")]
+    public float stopGrapple = 1;
     [Tooltip("'Are you being pulled?'")]
     public bool IsFlying;
     [Tooltip("Location of Target point")]
@@ -27,7 +29,8 @@ public class GrapplingHook : MonoBehaviour {
     //public float opac;
 
     //  Use this for initialization
-    void Start () {
+    void Start()
+    {
         rb = TPC.GetComponent<Rigidbody>();
         Cursor.lockState = CursorLockMode.Locked;
         TPC.CanMove = true;
@@ -35,9 +38,10 @@ public class GrapplingHook : MonoBehaviour {
         //opac = TPC.GetComponent<Renderer>().material.color.a;
 
     }
-	
-	//  Update is called once per frame
-	void Update () {
+
+    //  Update is called once per frame
+    void Update()
+    {
         //  Change opacity of player when looking upward
         /*if (cam.transform.position.z < -4)
         {
@@ -65,7 +69,7 @@ public class GrapplingHook : MonoBehaviour {
             LR.enabled = false;
             TPC.GetComponent<Rigidbody>().useGravity = true;
         }
-	}
+    }
 
     //  Check for target
     public void LocateSpot()
@@ -88,11 +92,12 @@ public class GrapplingHook : MonoBehaviour {
         LR.SetPosition(0, hand.position);
         TPC.GetComponent<Rigidbody>().useGravity = false;
 
-        if (Vector3.Distance(transform.position, loc) < 1.25f)
+        if (Vector3.Distance(transform.position, loc) < stopGrapple)
         {
-           IsFlying = false;
-           TPC.CanMove = true;
-           TPC.GetComponent<Rigidbody>().useGravity = true;
+            IsFlying = false;
+            TPC.CanMove = true;
+            rb.useGravity = true;
+            rb.velocity = transform.position * 0;
         }
     }
 }
