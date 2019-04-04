@@ -35,8 +35,6 @@ public class ThirdPersonController : MonoBehaviour
     private bool canJump = true;
     private bool isGrounded;
     private Transform groundCheck;
-    
-    
 
     void Start()
     {
@@ -58,12 +56,12 @@ public class ThirdPersonController : MonoBehaviour
         {
             if (isGrounded)
             {
-                // Calculate how fast we should be moving
+                // Calculate how fast the player should be moving
                 Vector3 targetVelocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
                 targetVelocity = playCamera.TransformDirection(targetVelocity);
                 targetVelocity *= speed;
 
-                // Apply a force that attempts to reach our target velocity
+                // Apply a force that attempts to reach the target velocity
                 Vector3 velocity = rb.velocity;
                 Vector3 velocityChange = (targetVelocity - velocity);
                 velocityChange.x = Mathf.Clamp(velocityChange.x, -maxVelocityChange, maxVelocityChange);
@@ -94,7 +92,7 @@ public class ThirdPersonController : MonoBehaviour
     {
         if (col.gameObject.CompareTag("Collectable"))
         {
-            Destroy(col.gameObject);
+            col.gameObject.SetActive(false);
         }
     }
 

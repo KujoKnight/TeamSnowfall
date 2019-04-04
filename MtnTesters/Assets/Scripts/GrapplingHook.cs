@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 
 public class GrapplingHook : MonoBehaviour
 {
@@ -26,8 +27,6 @@ public class GrapplingHook : MonoBehaviour
     public RaycastHit hit;
     public Rigidbody rb;
 
-    //public float opac;
-
     //  Use this for initialization
     void Start()
     {
@@ -35,27 +34,16 @@ public class GrapplingHook : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         TPC.CanMove = true;
         TPC.GetComponent<Rigidbody>().useGravity = true;
-        //opac = TPC.GetComponent<Renderer>().material.color.a;
-
     }
 
     //  Update is called once per frame
     void Update()
     {
-        //  Change opacity of player when looking upward
-        /*if (cam.transform.position.z < -4)
+        // Checks for grapplable target
+        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, MaxDist, TargetLayer))
         {
-            Debug.Log(opac);
-            opac = cam.transform.position.z/-4;
-        }
-        else
-        {
-            opac = 1;
-        }*/
-
-        //  Pull when holding left click (And aiming at target)
-        if (Input.GetButtonDown("Fire1"))
             LocateSpot();
+        }
 
         //  If being pulled, pull to target and prevent movement interference
         if (IsFlying)
@@ -74,8 +62,9 @@ public class GrapplingHook : MonoBehaviour
     //  Check for target
     public void LocateSpot()
     {
-        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, MaxDist, TargetLayer))
+        if (Input.GetButtonDown("Fire1"))
         {
+            rb.velocity = transform.position * 0;
             IsFlying = true;
             loc = hit.point;
             TPC.CanMove = false;
