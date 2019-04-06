@@ -4,21 +4,20 @@ using UnityEngine;
 
 public class CheckPoints : MonoBehaviour {
 
-    public Transform respawnPoint;
-    public KillVolume killVolume;
+    private GameController gc;
 
-	// Use this for initialization
-	void Start () {
+    void Start()
+    {
+        gc = GameObject.FindGameObjectWithTag("GC").GetComponent<GameController>();
+    }
 
-        killVolume = GetComponent<KillVolume>();
-
-	}
-
+    //Sets the current checkpoint to the one the player has most recently collided with
     void OnTriggerEnter(Collider col)
     {
-        if (col.gameObject.CompareTag("Player"))
+        if (col.CompareTag("Player"))
         {
-            killVolume.respawnPoint = respawnPoint;
+            gc.lastCheckPointPos = transform.position;
+            Debug.Log("Checkpoint changed to " + gc.lastCheckPointPos);
         }
     }
 }

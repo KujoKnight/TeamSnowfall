@@ -93,6 +93,7 @@ public class ThirdPersonController : MonoBehaviour
         if (col.gameObject.CompareTag("Collectable"))
         {
             col.gameObject.SetActive(false);
+            CarryOverData.playerScore++;
         }
     }
 

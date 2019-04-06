@@ -7,6 +7,8 @@ TagManager:
   - Collectable
   - LevelSwitch
   - Enemy
+  - GC
+  - KillVolume
   layers:
   - Default
   - TransparentFX
