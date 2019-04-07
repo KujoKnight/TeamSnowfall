@@ -282,8 +282,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 1acb3e1a923429349bacad1ea49d83a7, type: 3}
-  - {fileID: 2100002, guid: 1acb3e1a923429349bacad1ea49d83a7, type: 3}
+  - {fileID: 2100000, guid: b355b01bd82e5d54cb167a838e4b2494, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -309,7 +308,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1659622217058914}
-  m_Mesh: {fileID: 4300000, guid: 1acb3e1a923429349bacad1ea49d83a7, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 4638883ebcd3846418da2b354bb6f67a, type: 3}
 --- !u!54 &54389970229234416
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -395,6 +394,7 @@ MonoBehaviour:
     m_Bits: 1024
   MaxDist: 75
   speed: 10
+  stopGrapple: 1
   IsFlying: 0
   loc: {x: 0, y: 0, z: 0}
   cam: {fileID: 20935635532679174}
@@ -459,6 +459,7 @@ MonoBehaviour:
   gravity: 5
   CanMove: 1
   playerModel: {fileID: 1659622217058914}
+  force: 5
 --- !u!114 &114945354056191990
 MonoBehaviour:
   m_ObjectHideFlags: 1
