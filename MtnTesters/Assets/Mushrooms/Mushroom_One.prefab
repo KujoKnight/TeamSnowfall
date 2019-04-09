@@ -19,6 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4870018025306016}
+  - component: {fileID: 64986558674954634}
   m_Layer: 0
   m_Name: Mushroom_One
   m_TagString: Untagged
@@ -82,7 +83,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1807082126029526}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.00112, y: 0.02178, z: -0.0003}
+  m_LocalPosition: {x: 0.00221, y: 0.02187, z: -0.00059}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4514768181175174}
@@ -123,13 +124,13 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1110840683492346}
   m_LocalRotation: {x: -0, y: -0.7926431, z: -0, w: 0.60968596}
-  m_LocalPosition: {x: 22.77, y: -42.83, z: -67.26}
-  m_LocalScale: {x: 405.61252, y: 405.61267, z: 405.61267}
+  m_LocalPosition: {x: -7.39, y: -8.6, z: 49.76}
+  m_LocalScale: {x: 1709.4895, y: 1709.4915, z: 1709.4915}
   m_Children:
   - {fileID: 4514768181175174}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -104.866005, z: 0}
+  m_LocalEulerAnglesHint: {x: -1.3620001, y: -367.323, z: -2.8850002}
 --- !u!23 &23330504151993610
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -172,6 +173,20 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1589585315125144}
   m_Mesh: {fileID: 4300000, guid: f6ad8556a35718f4b99852c648a89f7a, type: 3}
+--- !u!64 &64986558674954634
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1110840683492346}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 0}
 --- !u!108 &108432944749232536
 Light:
   m_ObjectHideFlags: 1
@@ -181,13 +196,13 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 2
-  m_Color: {r: 0.2520915, g: 0.78095907, b: 0.9716981, a: 1}
-  m_Intensity: 2.64
-  m_Range: 8.23
+  m_Color: {r: 0.5284354, g: 0.798282, b: 0.8962264, a: 1}
+  m_Intensity: 1
+  m_Range: 60
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 1
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -203,7 +218,7 @@ Light:
     m_Bits: 4294967295
   m_Lightmapping: 4
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1
+  m_BounceIntensity: 2
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
@@ -217,13 +232,13 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 2
-  m_Color: {r: 0.2520915, g: 0.78095907, b: 0.9716981, a: 1}
-  m_Intensity: 2.64
-  m_Range: 8.23
+  m_Color: {r: 0.21484515, g: 0.5295974, b: 0.6415094, a: 1}
+  m_Intensity: 1
+  m_Range: 60
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
