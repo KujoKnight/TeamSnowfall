@@ -67,9 +67,11 @@
     <Compile Include="Assets\Scripts\CheckPoints.cs" />
     <Compile Include="Assets\Scripts\Collectable.cs" />
     <Compile Include="Assets\Scripts\EnemyNavigation.cs" />
+    <Compile Include="Assets\Scripts\GameController.cs" />
     <Compile Include="Assets\Scripts\GrapplingHook.cs" />
     <Compile Include="Assets\Scripts\GroundGiz.cs" />
     <Compile Include="Assets\Scripts\KillVolume.cs" />
+    <Compile Include="Assets\Scripts\PlayerPos.cs" />
     <Compile Include="Assets\Scripts\ThirdPersonController.cs" />
     <Compile Include="Assets\Scripts\Waypoints.cs" />
     <Reference Include="UnityEditor.StandardEvents">
