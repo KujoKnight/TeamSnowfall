@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour {
     public static bool isGamePaused;
@@ -9,7 +10,7 @@ public class PauseMenu : MonoBehaviour {
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Tab))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (isGamePaused)
             {
@@ -28,6 +29,8 @@ public class PauseMenu : MonoBehaviour {
         playerUI.SetActive(true);
         Time.timeScale = 1f;
         isGamePaused = false;
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     public void Pause()
@@ -36,5 +39,12 @@ public class PauseMenu : MonoBehaviour {
         playerUI.SetActive(false);
         Time.timeScale = 0f;
         isGamePaused = true;
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+    }
+
+    public void ReturnToMM()
+    {
+        SceneManager.LoadScene(0);
     }
 }
