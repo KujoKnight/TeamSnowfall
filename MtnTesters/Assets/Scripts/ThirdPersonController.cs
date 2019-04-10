@@ -25,15 +25,17 @@ public class ThirdPersonController : MonoBehaviour
     [Tooltip("Gravity")]
     public float gravity = 5.0f;
     [Tooltip("Can the player move?")]
-    public bool CanMove;
+    public bool canMove;
     [Tooltip("Player character model")]
     public GameObject playerModel;
     [Tooltip("Force")]
     public float force = 5;
+    [Tooltip("Is the player jumping")]
+    public bool isJumping;
 
     private Vector3 dir;
     private bool canJump = true;
-    private bool isGrounded;
+    public bool isGrounded;
     private Transform groundCheck;
 
     void Start()
@@ -52,7 +54,7 @@ public class ThirdPersonController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (CanMove)
+        if (canMove)
         {
             if (isGrounded)
             {
@@ -73,6 +75,11 @@ public class ThirdPersonController : MonoBehaviour
                 if (canJump && Input.GetButton("Jump"))
                 {
                     rb.velocity = new Vector3(velocity.x, CalculateJumpVerticalSpeed(), velocity.z);
+                    isJumping = true;
+                }
+                else
+                {
+                    isJumping = false;
                 }
             }
 
@@ -93,6 +100,7 @@ public class ThirdPersonController : MonoBehaviour
         if (col.gameObject.CompareTag("Collectable"))
         {
             col.gameObject.SetActive(false);
+            GameController.playerScore++;
         }
     }
 

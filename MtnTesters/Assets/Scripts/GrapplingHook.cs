@@ -32,7 +32,7 @@ public class GrapplingHook : MonoBehaviour
     {
         rb = TPC.GetComponent<Rigidbody>();
         Cursor.lockState = CursorLockMode.Locked;
-        TPC.CanMove = true;
+        TPC.canMove = true;
         TPC.GetComponent<Rigidbody>().useGravity = true;
     }
 
@@ -53,7 +53,7 @@ public class GrapplingHook : MonoBehaviour
         if (Input.GetButtonUp("Fire1") && IsFlying)
         {
             IsFlying = false;
-            TPC.CanMove = true;
+            TPC.canMove = true;
             LR.enabled = false;
             TPC.GetComponent<Rigidbody>().useGravity = true;
         }
@@ -67,7 +67,7 @@ public class GrapplingHook : MonoBehaviour
             rb.velocity = transform.position * 0;
             IsFlying = true;
             loc = hit.point;
-            TPC.CanMove = false;
+            TPC.canMove = false;
             LR.enabled = true;
             LR.SetPosition(1, loc);
         }
@@ -84,7 +84,7 @@ public class GrapplingHook : MonoBehaviour
         if (Vector3.Distance(transform.position, loc) < stopGrapple)
         {
             IsFlying = false;
-            TPC.CanMove = true;
+            TPC.canMove = true;
             rb.useGravity = true;
             rb.velocity = transform.position * 0;
         }

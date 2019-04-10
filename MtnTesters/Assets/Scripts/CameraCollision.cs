@@ -10,21 +10,28 @@ public class CameraCollision : MonoBehaviour {
     Vector3 dollyDir;
     public Vector3 dollyDirAdjusted;
     public float distance;
+    public ThirdPersonController tPC;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
         dollyDir = transform.localPosition.normalized;
         distance = transform.localPosition.magnitude;
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
         Vector3 desiredCameraPos = transform.parent.TransformPoint(dollyDir * maxDistance);
         RaycastHit hit;
 
-        if (Physics.Linecast (transform.parent.position, desiredCameraPos, out hit))
+        if (Physics.Linecast(transform.parent.position, desiredCameraPos, out hit))
         {
             distance = Mathf.Clamp((hit.distance * 0.8f), minDistance, maxDistance);
+        }
+        else if (tPC.isJumping == false && tPC.isGrounded == false)
+        {
+            distance = maxDistance + 200;
         }
         else
         {
@@ -32,5 +39,5 @@ public class CameraCollision : MonoBehaviour {
         }
 
         transform.localPosition = Vector3.Lerp(transform.localPosition, dollyDir * distance, Time.deltaTime * smooth);
-	}
+    }
 }

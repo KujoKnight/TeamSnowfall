@@ -28848,6 +28848,7 @@ MonoBehaviour:
   smooth: 5
   dollyDirAdjusted: {x: 0, y: 0, z: 0}
   distance: 0
+  tPC: {fileID: 1158346972}
 --- !u!81 &1061347719
 AudioListener:
   m_ObjectHideFlags: 0
@@ -28906,7 +28907,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -31453,9 +31454,11 @@ MonoBehaviour:
   jumpHeight: 5
   maxVelocityChange: 10
   gravity: 5
-  CanMove: 1
+  canMove: 0
   playerModel: {fileID: 1158346968}
   force: 10
+  isJumping: 0
+  isGrounded: 0
 --- !u!120 &1158346973
 LineRenderer:
   m_ObjectHideFlags: 0
